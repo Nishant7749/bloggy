@@ -13,6 +13,6 @@ const blogSchema = mongoose.Schema({
 
 } ,{timestamps: true})
 
-const blogModel = mongoose.model('Blog', blogSchema)
+const blogModel = mongoose.model('blogs', blogSchema)
 
 module.exports = blogModel

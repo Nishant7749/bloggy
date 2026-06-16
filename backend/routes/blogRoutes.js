@@ -10,7 +10,7 @@ router.route('/')
 
 router.route('/:id')
       .put(updateBlog)
-      .delete(deleteBlog)
-
+      .delete(deleteBlog)      
+   
 
 module.exports = router

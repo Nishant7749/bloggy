@@ -10,6 +10,8 @@ export default function Navbar() {
                 <Link className='text-amber-700 hover:text-amber-900 cursor-pointer' to='/'>Home</Link>
                 <Link className='text-amber-700 hover:text-amber-900 cursor-pointer' to='/blog'>Blog</Link>
                 <Link className='text-amber-700 hover:text-amber-900 cursor-pointer' to='/history'>History</Link>
+                <Link className='text-amber-700 hover:text-amber-900 hover:border-amber-900 cursor-pointer border border-amber-600/80 rounded-md p-1 bg-amber-600/60' to='/register'>Register</Link>
+
             </div>
          </nav>
         </>
