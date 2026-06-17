@@ -1,22 +1,33 @@
 import { useState } from "react"
 import { SignUp } from "../services/api"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
 import { RiAccountCircleLine,  RiLockPasswordLine, RiEyeLine } from "react-icons/ri";
 
 
-export default function Signup() {
+export default function Signup({setIsLogged}) {
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
     const [showPass, setShowPass] = useState(false)
 
+    const navigate = useNavigate()
+
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+       try {
+         e.preventDefault()
 
-        await SignUp(email, pass)
-        alert("Signed Up!")
+        await SignUp({email, password: pass})
+       toast.success("Signed Up!")
+        setIsLogged(true)
+        navigate('/')
+       } catch (error) {
+        console.error("signup error!")
+        toast.error("SignUp Error!")
+       }
 
     }
+   
 
     return (
         <>

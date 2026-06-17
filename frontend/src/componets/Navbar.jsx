@@ -1,10 +1,11 @@
 import {Link} from 'react-router-dom'
+import {GiBookmark} from 'react-icons/gi'
 
 export default function Navbar() {
     return(
         <>
          <nav className='flex items-center justify-between bg-amber-500 p-4'>
-            <h1 className='text-lg font-mono font-bold text-amber-900'>bloggy</h1>
+            <h1 className='text-lg font-mono font-bold text-amber-900 flex items-center justify-center gap-3'><GiBookmark className='text-2xl'/>bloggy</h1>
 
             <div className='flex gap-8'>
                 <Link className='text-amber-700 hover:text-amber-900 cursor-pointer' to='/'>Home</Link>

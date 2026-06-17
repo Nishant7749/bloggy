@@ -2,20 +2,27 @@ import { useState } from "react"
 import { LogIn } from "../services/api"
 import { Link } from "react-router-dom"
 import { RiAccountCircleLine,  RiLockPasswordLine, RiEyeLine } from "react-icons/ri";
+import { toast } from "react-toastify";
 
-export default function Login() {
+export default function Login({setIsLogged}) {
     const[email, setEmail] = useState("")
     const[pass, setPass] = useState("")
     const[showPass, setShowPass] = useState(false)
 
 
     const handleSubmit = async(e)=> {
-        e.preventDefault()
+        try {
+            e.preventDefault()
 
-        await LogIn(email, pass)
-        alert("Logging In...")
-
+        await LogIn({email, password:pass})
+        toast.success("Logging In...")
+        setIsLogged(true)
+        } catch (error) {
+            console.error("login error!")
+            toast.error("Login Error")
+        }
     }
+     
   
     return(
         <>
@@ -36,7 +43,7 @@ export default function Login() {
                             </div>
         
                             <div className="flex items-center justify-center">
-                                <button className="border border-gray-500/50 bg-gray-500/40 p-2 rounded-lg text-gray-300 cursor-pointer  hover:text-white " type="submit">Sign Up</button>
+                                <button className="border border-gray-500/50 bg-gray-500/40 p-2 rounded-lg text-gray-300 cursor-pointer  hover:text-white " type="submit">Log In</button>
                             </div>
         
                         </form>

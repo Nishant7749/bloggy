@@ -2,8 +2,9 @@ import Login from "../componets/Login";
 import Signup from "../componets/Signup";
 import { useState } from "react";
 
-export default function Register() {
+export default function Register({setIsLogged}) {
     const[showLogin, setShowLogin] = useState(false)
+
 
     return(
         <>
@@ -12,7 +13,7 @@ export default function Register() {
         or
         <button className=" p-3 text-xl uppercase rounded-md bg-amber-600/20 border border-amber-600/20 text-amber-700 hover:text-amber-900 cursor-pointer" onClick={()=> setShowLogin(true)}>login</button>
 </div>
-        {showLogin ? (<Login/>): (<Signup/>)}
+        {showLogin ? (<Login setIsLogged={setIsLogged}/>): (<Signup setIsLogged={setIsLogged}/>)}
         
         </>
     )

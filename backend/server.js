@@ -18,6 +18,6 @@ app.get('/', (req,res)=> {
     res.send('Run Blog on URL [/blog]')
 })
 
-app.listen(3000, ()=> {
-    console.log('[server connected] http://localhost:3000')
+app.listen(5000, ()=> {
+    console.log('[server connected] http://localhost:5000/blog')
 })
